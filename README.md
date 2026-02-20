@@ -1,0 +1,2 @@
+# EasyAgentCU
+EasyAgentCU，一个简单的ComputerUse（电脑使用）智能体。这个项目使用python开发，实现了大模型自动操作电脑完成用户吩咐的任务。它被设计为在虚拟机中运行，用户需要在宿主机中访问虚拟机中EasyAgentCU开放的web服务（web界面）。
