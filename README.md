@@ -1,6 +1,13 @@
 # EasyAgentCU
 
-EasyAgentCU，一个简单的 ComputerUse（电脑使用）智能体。当前仓库已经提供可运行的后端与 Web 交互界面，包含：
+EasyAgentCU，一个简单的 ComputerUse（电脑使用）智能体。
+
+## 技术栈
+
+- 后端：Python + FastAPI（SSE 事件流）
+- 前端：Next.js + Tailwind CSS + Radix UI（Collapsible）+ shadcn 风格基础组件
+
+## 已实现功能
 
 - 聊天发送/停止
 - SSE 实时事件流
@@ -11,11 +18,13 @@ EasyAgentCU，一个简单的 ComputerUse（电脑使用）智能体。当前仓
 ## 目录
 
 - `backend/`：FastAPI 服务、Agent Runtime、SSE、鲁棒点击逻辑。
-- `web/`：前端界面（静态页面 + JS 交互）。
+- `frontend/`：Next.js 前端（不再使用传统单文件 HTML/JS/CSS）。
 - `记事本.md`：需求说明。
 - `EasyAgentCU实现方案.md`：设计文档。
 
-## 本地运行
+## 运行
+
+### 1) 启动后端
 
 ```bash
 cd backend
@@ -25,10 +34,23 @@ pip install -r requirements.txt
 ./run.sh
 ```
 
-启动后访问：
+后端默认：`http://127.0.0.1:8000`
 
-- `http://127.0.0.1:8000`
-- 或在虚拟机场景下通过 `http://<VM_IP>:8000`
+### 2) 启动前端
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+前端默认：`http://127.0.0.1:3000`
+
+可选环境变量（前端）：
+
+```bash
+NEXT_PUBLIC_API_BASE=http://127.0.0.1:8000
+```
 
 ## 测试
 

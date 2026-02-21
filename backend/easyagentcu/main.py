@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
 from easyagentcu.store.session_store import SessionEventBus
 from easyagentcu.agent.runtime import AgentRuntime
@@ -20,7 +18,7 @@ def get_runtime() -> AgentRuntime:
     return runtime
 
 
-app = FastAPI(title="EasyAgentCU")
+app = FastAPI(title="EasyAgentCU API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -37,7 +35,3 @@ app.include_router(chat_router)
 @app.get("/health")
 async def health():
     return {"ok": True}
-
-
-web_dir = Path(__file__).resolve().parents[2] / "web"
-app.mount("/", StaticFiles(directory=str(web_dir), html=True), name="web")

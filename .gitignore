@@ -1,4 +1,14 @@
+# Python
 __pycache__/
 *.pyc
-backend/.venv/
 .pytest_cache/
+backend/.venv/
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+frontend/out/
+
+# OS
+.DS_Store
